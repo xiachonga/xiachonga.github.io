@@ -12,7 +12,7 @@
 
 
 
-<title>2020寒假计划 | 放不下筷子的程序员</title>
+<title>SICP视频 | 放不下筷子的程序员</title>
 
 
 
@@ -174,7 +174,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">2020寒假计划</h1>
+            <h1 class="post-title">SICP视频</h1>
             
                 <div class="post-meta">
                     
@@ -183,14 +183,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">December 27, 2019&nbsp;&nbsp;11:56:01</a>
+                        Date: <a href="#">December 28, 2019&nbsp;&nbsp;11:19:00</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/%E4%B8%AA%E4%BA%BA%E8%AE%A1%E5%88%92/">个人计划</a>
+                                <a href="/categories/SCIP/">SCIP</a>
                             
                         </span>
                     
@@ -199,61 +199,37 @@
         </header>
 
         <div class="post-content">
-            <h4 id="主要任务"><a href="#主要任务" class="headerlink" title="主要任务"></a>主要任务</h4><ul>
-<li>实现一个简单编译器</li>
-<li>看ppopp论文</li>
-<li>做毕业设计</li>
-<li>临完汲黯传</li>
-<li>100道oj题</li>
-<li>准备复试口语</li>
-</ul>
-<h4 id="具体安排"><a href="#具体安排" class="headerlink" title="具体安排"></a>具体安排</h4><ul>
-<li>12.28-1.8<ul>
-<li>深度学习相关视频</li>
-<li>看完ppopp论文</li>
-<li>找故障检测相关论文</li>
-<li>看scip视频以及书的前两章(大概一天一个</li>
-<li>确定编译技术路线</li>
+            <h3 id="Lisp概述"><a href="#Lisp概述" class="headerlink" title="Lisp概述"></a>Lisp概述</h3><ul>
+<li><p>类比几何学</p>
+</li>
+<li><p>平方根</p>
+<ul>
+<li>y*y=x,那么x/y=y,y的值就是这个函数的不动点。</li>
 </ul>
 </li>
-<li>1.8-1.18<ul>
-<li>看故障检测相关论文</li>
-<li>看完王爽汇编语言</li>
-<li>撸完编译器前端</li>
-<li>确定所做的故障类型</li>
+<li><p>计算机科学的任务是形式化这种如有关“怎么做”的指令性知识（控制复杂度</p>
+</li>
+<li><p>与构造物理系统所受的限制不同，构建大型软件系统所受的限制是我们大脑的限制</p>
+</li>
+<li><p>控制复杂度的技术</p>
+<ul>
+<li>黑盒抽象</li>
+<li>约定接口 </li>
+<li>元语言抽象</li>
 </ul>
 </li>
-<li>1.18-1.23<ul>
-<li>编译器后端边学边写</li>
-<li>学习pytorch</li>
-<li>毕业设计根据鲁老师要求做进一步的安排</li>
+<li><p>当有人向你提到一门新语言时，你应该问他？</p>
+<ul>
+<li>构成语言的基本元素有哪些？</li>
+<li>你是如何将这些元素组合在一起的？组合的方法是什么？</li>
+<li>抽象的方法是什么？我们是如何利用这些元素并将它封装成盒子的？</li>
 </ul>
 </li>
-<li>1.28-2.8<ul>
-<li>搞定编译器</li>
-<li>看之前做过的项目</li>
+<li><p>Lisp </p>
+<ul>
+<li>写表达式是在构造抽象语法树，加括号只是将这种非线性结构转化成线性字符串的一种方法而已。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">(define A (+ 3 4 5))</span><br><span class="line">;一个需要注意的点</span><br><span class="line">(define (D) (+ 3 4 5))</span><br><span class="line">;调用A 返回 12</span><br><span class="line">;调用D 返回一个过程</span><br><span class="line">;调用(D) 返回12</span><br><span class="line">;调用A 返回error </span><br><span class="line"></span><br><span class="line">(display (* A A))</span><br><span class="line"></span><br><span class="line">(define (square x)</span><br><span class="line">    (* x x))</span><br><span class="line">;(display (square 10))</span><br><span class="line">(define square1 (lambda (x) (* x x)))</span><br><span class="line">(display (square1 10))</span><br><span class="line">(define (ABS x)</span><br><span class="line">(cond ((&lt; x 0)(-x))  </span><br><span class="line">    ((&#x3D; 0) 0)</span><br><span class="line">    ((&gt; 0) x)</span><br><span class="line">    ))</span><br><span class="line"></span><br><span class="line">; 计算平方根</span><br><span class="line"></span><br><span class="line">(exit)</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li>2.8-复试<ul>
-<li>搞个简单的scheme解释器(视情况而定</li>
-<li>开始写操作系统</li>
-</ul>
-</li>
-<li>oj和口语贯穿始终</li>
-</ul>
-<h4 id="时间安排"><a href="#时间安排" class="headerlink" title="时间安排"></a>时间安排</h4><ul>
-<li>8:00 起床</li>
-<li>8:00-9:00 洗漱吃饭</li>
-<li>9:00-9:30 半小时口语</li>
-<li>9:30-11:00 两道oj题</li>
-<li>11:00-12:30 看相关视频</li>
-<li>12:30-13:00 吃饭</li>
-<li>13:00-14:00 睡觉</li>
-<li>14:00-17:30 写编译器</li>
-<li>17:30-18:00 吃饭</li>
-<li>18:00-21:00 看论文和毕业设计相关</li>
-<li>21:00-21:30 临帖</li>
-<li>21:30-23:30 娱乐时间</li>
 </ul>
 
         </div>
@@ -273,7 +249,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/%E4%B8%AA%E4%BA%BA%E8%AE%A1%E5%88%92/">· 个人计划</a>
+                        <a href="/tags/SICP/">· SICP</a>
                     
                         
                 </span>
@@ -282,8 +258,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/12/28/%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E7%BB%93%E7%82%B9/">两两交换链表中的结点</a>
             
+            <a class="next" rel="next" href="/2019/12/28/%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E7%BB%93%E7%82%B9/">两两交换链表中的结点</a>
             
         </section>
 

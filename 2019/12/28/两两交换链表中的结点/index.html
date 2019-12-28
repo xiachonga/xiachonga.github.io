@@ -12,7 +12,7 @@
 
 
 
-<title>2020寒假计划 | 放不下筷子的程序员</title>
+<title>两两交换链表中的结点 | 放不下筷子的程序员</title>
 
 
 
@@ -174,7 +174,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">2020寒假计划</h1>
+            <h1 class="post-title">两两交换链表中的结点</h1>
             
                 <div class="post-meta">
                     
@@ -183,14 +183,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">December 27, 2019&nbsp;&nbsp;11:56:01</a>
+                        Date: <a href="#">December 28, 2019&nbsp;&nbsp;10:07:52</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/%E4%B8%AA%E4%BA%BA%E8%AE%A1%E5%88%92/">个人计划</a>
+                                <a href="/categories/leetcode/">leetcode</a>
                             
                         </span>
                     
@@ -199,63 +199,9 @@
         </header>
 
         <div class="post-content">
-            <h4 id="主要任务"><a href="#主要任务" class="headerlink" title="主要任务"></a>主要任务</h4><ul>
-<li>实现一个简单编译器</li>
-<li>看ppopp论文</li>
-<li>做毕业设计</li>
-<li>临完汲黯传</li>
-<li>100道oj题</li>
-<li>准备复试口语</li>
-</ul>
-<h4 id="具体安排"><a href="#具体安排" class="headerlink" title="具体安排"></a>具体安排</h4><ul>
-<li>12.28-1.8<ul>
-<li>深度学习相关视频</li>
-<li>看完ppopp论文</li>
-<li>找故障检测相关论文</li>
-<li>看scip视频以及书的前两章(大概一天一个</li>
-<li>确定编译技术路线</li>
-</ul>
-</li>
-<li>1.8-1.18<ul>
-<li>看故障检测相关论文</li>
-<li>看完王爽汇编语言</li>
-<li>撸完编译器前端</li>
-<li>确定所做的故障类型</li>
-</ul>
-</li>
-<li>1.18-1.23<ul>
-<li>编译器后端边学边写</li>
-<li>学习pytorch</li>
-<li>毕业设计根据鲁老师要求做进一步的安排</li>
-</ul>
-</li>
-<li>1.28-2.8<ul>
-<li>搞定编译器</li>
-<li>看之前做过的项目</li>
-</ul>
-</li>
-<li>2.8-复试<ul>
-<li>搞个简单的scheme解释器(视情况而定</li>
-<li>开始写操作系统</li>
-</ul>
-</li>
-<li>oj和口语贯穿始终</li>
-</ul>
-<h4 id="时间安排"><a href="#时间安排" class="headerlink" title="时间安排"></a>时间安排</h4><ul>
-<li>8:00 起床</li>
-<li>8:00-9:00 洗漱吃饭</li>
-<li>9:00-9:30 半小时口语</li>
-<li>9:30-11:00 两道oj题</li>
-<li>11:00-12:30 看相关视频</li>
-<li>12:30-13:00 吃饭</li>
-<li>13:00-14:00 睡觉</li>
-<li>14:00-17:30 写编译器</li>
-<li>17:30-18:00 吃饭</li>
-<li>18:00-21:00 看论文和毕业设计相关</li>
-<li>21:00-21:30 临帖</li>
-<li>21:30-23:30 娱乐时间</li>
-</ul>
-
+            <h5 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h5><p>给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。<br>你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。</p>
+<h5 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h5><p>一开始，自己做的时候没有想到创建一个虚拟头节点使得链表的所有操作统一，单独处理起来非常麻烦。<br>以后做链表的oj题要有这种意识，没有头节点就创造头节点。</p>
+<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public ListNode swapPairs(ListNode head) &#123;</span><br><span class="line">       if(head &#x3D;&#x3D; null || head.next &#x3D;&#x3D; null)</span><br><span class="line">           return head;</span><br><span class="line">        ListNode node &#x3D; new ListNode(0);</span><br><span class="line">        ListNode temp &#x3D; node;</span><br><span class="line">        while(head !&#x3D; null &amp;&amp; head.next !&#x3D; null)</span><br><span class="line">        &#123;</span><br><span class="line">            node.next&#x3D;head.next;</span><br><span class="line">            head.next &#x3D; node.next.next;</span><br><span class="line">            node.next.next &#x3D; head;</span><br><span class="line">            </span><br><span class="line">            node &#x3D;head;</span><br><span class="line">            head&#x3D;head.next;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        return temp.next;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -273,7 +219,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/%E4%B8%AA%E4%BA%BA%E8%AE%A1%E5%88%92/">· 个人计划</a>
+                        <a href="/tags/%E9%93%BE%E8%A1%A8/">· 链表</a>
                     
                         
                 </span>
@@ -282,8 +228,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/12/28/%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E7%BB%93%E7%82%B9/">两两交换链表中的结点</a>
+                <a class="prev" rel="prev" href="/2019/12/28/SICP%E8%A7%86%E9%A2%91/">SICP视频</a>
             
+            
+            <a class="next" rel="next" href="/2019/12/27/2020%E5%AF%92%E5%81%87%E8%AE%A1%E5%88%92/">2020寒假计划</a>
             
         </section>
 
