@@ -12,7 +12,7 @@
 
 
 
-<title>SICP视频 | 放不下筷子的程序员</title>
+<title>旋转链表 | 放不下筷子的程序员</title>
 
 
 
@@ -174,7 +174,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">SICP视频</h1>
+            <h1 class="post-title">旋转链表</h1>
             
                 <div class="post-meta">
                     
@@ -183,14 +183,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">December 28, 2019&nbsp;&nbsp;11:19:00</a>
+                        Date: <a href="#">December 29, 2019&nbsp;&nbsp;9:32:55</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/SCIP/">SCIP</a>
+                                <a href="/categories/leetcode/">leetcode</a>
                             
                         </span>
                     
@@ -199,39 +199,11 @@
         </header>
 
         <div class="post-content">
-            <h3 id="Lisp概述"><a href="#Lisp概述" class="headerlink" title="Lisp概述"></a>Lisp概述</h3><ul>
-<li><p>类比几何学</p>
-</li>
-<li><p>平方根</p>
-<ul>
-<li>y*y=x,那么x/y=y,y的值就是这个函数的不动点。</li>
-</ul>
-</li>
-<li><p>计算机科学的任务是形式化这种如有关“怎么做”的指令性知识（控制复杂度</p>
-</li>
-<li><p>与构造物理系统所受的限制不同，构建大型软件系统所受的限制是我们大脑的限制</p>
-</li>
-<li><p>控制复杂度的技术</p>
-<ul>
-<li>黑盒抽象</li>
-<li>约定接口 </li>
-<li>元语言抽象</li>
-</ul>
-</li>
-<li><p>当有人向你提到一门新语言时，你应该问他？</p>
-<ul>
-<li>构成语言的基本元素有哪些？</li>
-<li>你是如何将这些元素组合在一起的？组合的方法是什么？</li>
-<li>抽象的方法是什么？我们是如何利用这些元素并将它封装成盒子的？</li>
-</ul>
-</li>
-<li><p>Lisp </p>
-<ul>
-<li>写表达式是在构造抽象语法树，加括号只是将这种非线性结构转化成线性字符串的一种方法而已。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">(define A (+ 3 4 5))</span><br><span class="line">;一个需要注意的点</span><br><span class="line">(define (D) (+ 3 4 5))</span><br><span class="line">;调用A 返回 12</span><br><span class="line">;调用D 返回一个过程</span><br><span class="line">;调用(D) 返回12</span><br><span class="line">;调用A 返回error </span><br><span class="line"></span><br><span class="line">(display (* A A))</span><br><span class="line"></span><br><span class="line">(define (square x)</span><br><span class="line">    (* x x))</span><br><span class="line">;(display (square 10))</span><br><span class="line">(define square1 (lambda (x) (* x x)))</span><br><span class="line">(display (square1 10))</span><br><span class="line">(define (ABS x)</span><br><span class="line">(cond ((&lt; x 0)(-x))  </span><br><span class="line">    ((&#x3D; 0) 0)</span><br><span class="line">    ((&gt; 0) x)</span><br><span class="line">    ))</span><br><span class="line"></span><br><span class="line">; 计算平方根</span><br><span class="line"></span><br><span class="line">(exit)</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-
+            <h5 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h5><p>给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。</p>
+<h5 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h5><p>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, k = 2<br><br>输出: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL<br><br>解释:<br><br>向右旋转 1 步: 5-&gt;1-&gt;2-&gt;3-&gt;4-&gt;NULL<br><br>向右旋转 2 步: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL<br></p>
+<p>输入: 0-&gt;1-&gt;2-&gt;NULL, k = 4<br><br>输出: 2-&gt;0-&gt;1-&gt;NULL<br><br>解释:<br><br>向右旋转 1 步: 2-&gt;0-&gt;1-&gt;NULL<br><br>向右旋转 2 步: 1-&gt;2-&gt;0-&gt;NULL<br><br>向右旋转 3 步: 0-&gt;1-&gt;2-&gt;NULL<br><br>向右旋转 4 步: 2-&gt;0-&gt;1-&gt;NULL<br></p>
+<h5 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h5><p>一开始的解法当k过于大的时候会出现时间超限，原因没有考虑到当k大于链表长度时会正好旋转一圈等于做了无用功，这里可以通过取余操作来提高效率。</p>
+<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">public ListNode rotateRight(ListNode head, int k) &#123;</span><br><span class="line">       </span><br><span class="line">       if(head&#x3D;&#x3D;null||k&#x3D;&#x3D;0) return head;</span><br><span class="line">      </span><br><span class="line">       int len &#x3D; 0;</span><br><span class="line">       ListNode p &#x3D; head;</span><br><span class="line">       while(p!&#x3D;null)</span><br><span class="line">       &#123;</span><br><span class="line">           len++;</span><br><span class="line">           p&#x3D;p.next;</span><br><span class="line">       &#125;</span><br><span class="line">       k&#x3D;k%len;</span><br><span class="line">       if(k&#x3D;&#x3D;0) return head;</span><br><span class="line">       p&#x3D;head;</span><br><span class="line">       ListNode pre&#x3D;head;</span><br><span class="line">       while(k&gt;0)&#123;</span><br><span class="line">           k--;</span><br><span class="line">           p&#x3D;p.next;</span><br><span class="line">       &#125;</span><br><span class="line">          </span><br><span class="line">       while(p!&#x3D;null &amp;&amp; p.next!&#x3D;null)</span><br><span class="line">       &#123; </span><br><span class="line">           pre&#x3D;pre.next;</span><br><span class="line">           p&#x3D;p.next;</span><br><span class="line">       &#125;</span><br><span class="line">       if(pre.next!&#x3D;null)</span><br><span class="line">       &#123;   </span><br><span class="line">           ListNode temp&#x3D;pre.next;</span><br><span class="line">           pre.next&#x3D;null;</span><br><span class="line">           p.next&#x3D;head;</span><br><span class="line">           return temp;</span><br><span class="line">       &#125;</span><br><span class="line">       else</span><br><span class="line">       &#123;</span><br><span class="line">           return pre;</span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -249,7 +221,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/SICP/">· SICP</a>
+                        <a href="/tags/%E9%93%BE%E8%A1%A8/">· 链表</a>
                     
                         
                 </span>
@@ -258,10 +230,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/12/28/%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B-%E5%90%B4%E6%81%A9%E8%BE%BE/">序列模型-吴恩达</a>
+                <a class="prev" rel="prev" href="/2019/12/29/%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0II/">删除排序链表中的重复元素II</a>
             
             
-            <a class="next" rel="next" href="/2019/12/28/%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E7%BB%93%E7%82%B9/">两两交换链表中的结点</a>
+            <a class="next" rel="next" href="/2019/12/28/%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B-%E5%90%B4%E6%81%A9%E8%BE%BE/">序列模型-吴恩达</a>
             
         </section>
 

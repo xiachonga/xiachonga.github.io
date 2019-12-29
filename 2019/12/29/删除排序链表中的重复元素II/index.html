@@ -12,7 +12,7 @@
 
 
 
-<title>SICP视频 | 放不下筷子的程序员</title>
+<title>删除排序链表中的重复元素II | 放不下筷子的程序员</title>
 
 
 
@@ -174,7 +174,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">SICP视频</h1>
+            <h1 class="post-title">删除排序链表中的重复元素II</h1>
             
                 <div class="post-meta">
                     
@@ -183,14 +183,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">December 28, 2019&nbsp;&nbsp;11:19:00</a>
+                        Date: <a href="#">December 29, 2019&nbsp;&nbsp;9:34:06</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/SCIP/">SCIP</a>
+                                <a href="/categories/leetcode/">leetcode</a>
                             
                         </span>
                     
@@ -199,35 +199,16 @@
         </header>
 
         <div class="post-content">
-            <h3 id="Lisp概述"><a href="#Lisp概述" class="headerlink" title="Lisp概述"></a>Lisp概述</h3><ul>
-<li><p>类比几何学</p>
-</li>
-<li><p>平方根</p>
-<ul>
-<li>y*y=x,那么x/y=y,y的值就是这个函数的不动点。</li>
+            <h5 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h5><p>给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中没有重复出现的数字。</p>
+<h5 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h5><p>输入: 1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5<br><br>输出: 1-&gt;2-&gt;5</p>
+<h5 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h5><ul>
+<li>设置快慢指针<ul>
+<li>快指针判断是否存在相同元素，有相同元素就前进，无相同元素就停止</li>
+<li>当快指针停止时<ul>
+<li><code>slow.next==fast slow=fast;</code> 如果快慢指针之间没有相同元素，两指针同时向后移动。</li>
+<li><code>slow.next=fast.next;</code> 如果快慢指针之间有相同元素，使slow指针跳过这些相同元素。<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public ListNode deleteDuplicates(ListNode head) &#123;</span><br><span class="line">      </span><br><span class="line">      if(head&#x3D;&#x3D;null || head.next &#x3D;&#x3D; null)</span><br><span class="line">          return head;</span><br><span class="line">      ListNode fakeHead &#x3D; new ListNode(-1);</span><br><span class="line">      fakeHead.next&#x3D;head;</span><br><span class="line">      ListNode fast &#x3D; head;</span><br><span class="line">      ListNode slow &#x3D; fakeHead;</span><br><span class="line">      while(fast!&#x3D;null)</span><br><span class="line">      &#123;</span><br><span class="line">          if((fast.next!&#x3D;null&amp;&amp;fast.val!&#x3D;fast.next.val)||fast.next&#x3D;&#x3D;null)</span><br><span class="line">          &#123;</span><br><span class="line">               if(slow.next&#x3D;&#x3D;fast)</span><br><span class="line">                   slow&#x3D;fast;</span><br><span class="line">              else</span><br><span class="line">              </span><br><span class="line">                  slow.next&#x3D;fast.next;     </span><br><span class="line">          &#125;</span><br><span class="line">          </span><br><span class="line">          fast&#x3D;fast.next;</span><br><span class="line">      &#125;</span><br><span class="line">      return fakeHead.next;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li><p>计算机科学的任务是形式化这种如有关“怎么做”的指令性知识（控制复杂度</p>
-</li>
-<li><p>与构造物理系统所受的限制不同，构建大型软件系统所受的限制是我们大脑的限制</p>
-</li>
-<li><p>控制复杂度的技术</p>
-<ul>
-<li>黑盒抽象</li>
-<li>约定接口 </li>
-<li>元语言抽象</li>
-</ul>
-</li>
-<li><p>当有人向你提到一门新语言时，你应该问他？</p>
-<ul>
-<li>构成语言的基本元素有哪些？</li>
-<li>你是如何将这些元素组合在一起的？组合的方法是什么？</li>
-<li>抽象的方法是什么？我们是如何利用这些元素并将它封装成盒子的？</li>
-</ul>
-</li>
-<li><p>Lisp </p>
-<ul>
-<li>写表达式是在构造抽象语法树，加括号只是将这种非线性结构转化成线性字符串的一种方法而已。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">(define A (+ 3 4 5))</span><br><span class="line">;一个需要注意的点</span><br><span class="line">(define (D) (+ 3 4 5))</span><br><span class="line">;调用A 返回 12</span><br><span class="line">;调用D 返回一个过程</span><br><span class="line">;调用(D) 返回12</span><br><span class="line">;调用A 返回error </span><br><span class="line"></span><br><span class="line">(display (* A A))</span><br><span class="line"></span><br><span class="line">(define (square x)</span><br><span class="line">    (* x x))</span><br><span class="line">;(display (square 10))</span><br><span class="line">(define square1 (lambda (x) (* x x)))</span><br><span class="line">(display (square1 10))</span><br><span class="line">(define (ABS x)</span><br><span class="line">(cond ((&lt; x 0)(-x))  </span><br><span class="line">    ((&#x3D; 0) 0)</span><br><span class="line">    ((&gt; 0) x)</span><br><span class="line">    ))</span><br><span class="line"></span><br><span class="line">; 计算平方根</span><br><span class="line"></span><br><span class="line">(exit)</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
@@ -249,7 +230,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/SICP/">· SICP</a>
+                        <a href="/tags/%E9%93%BE%E8%A1%A8/">· 链表</a>
                     
                         
                 </span>
@@ -258,10 +239,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/12/28/%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B-%E5%90%B4%E6%81%A9%E8%BE%BE/">序列模型-吴恩达</a>
             
-            
-            <a class="next" rel="next" href="/2019/12/28/%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E7%BB%93%E7%82%B9/">两两交换链表中的结点</a>
+            <a class="next" rel="next" href="/2019/12/29/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/">旋转链表</a>
             
         </section>
 
