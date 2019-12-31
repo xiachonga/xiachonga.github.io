@@ -214,7 +214,7 @@
 <li><p>控制复杂度的技术</p>
 <ul>
 <li>黑盒抽象</li>
-<li>约定接口 </li>
+<li>约定接口</li>
 <li>元语言抽象</li>
 </ul>
 </li>
@@ -225,11 +225,93 @@
 <li>抽象的方法是什么？我们是如何利用这些元素并将它封装成盒子的？</li>
 </ul>
 </li>
-<li><p>Lisp </p>
+<li><p>Lisp</p>
 <ul>
-<li>写表达式是在构造抽象语法树，加括号只是将这种非线性结构转化成线性字符串的一种方法而已。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">(define A (+ 3 4 5))</span><br><span class="line">;一个需要注意的点</span><br><span class="line">(define (D) (+ 3 4 5))</span><br><span class="line">;调用A 返回 12</span><br><span class="line">;调用D 返回一个过程</span><br><span class="line">;调用(D) 返回12</span><br><span class="line">;调用A 返回error </span><br><span class="line"></span><br><span class="line">(display (* A A))</span><br><span class="line"></span><br><span class="line">(define (square x)</span><br><span class="line">    (* x x))</span><br><span class="line">;(display (square 10))</span><br><span class="line">(define square1 (lambda (x) (* x x)))</span><br><span class="line">(display (square1 10))</span><br><span class="line">(define (ABS x)</span><br><span class="line">(cond ((&lt; x 0)(-x))  </span><br><span class="line">    ((&#x3D; 0) 0)</span><br><span class="line">    ((&gt; 0) x)</span><br><span class="line">    ))</span><br><span class="line"></span><br><span class="line">; 计算平方根</span><br><span class="line"></span><br><span class="line">(exit)</span><br></pre></td></tr></table></figure></li>
+<li>写表达式是在构造抽象语法树，加括号只是将这种非线性结构转化成线性字符串的一种方法而已。</li>
 </ul>
 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">(define A (+ 3 4 5))</span><br><span class="line">;一个需要注意的点</span><br><span class="line">(define (D) (+ 3 4 5))</span><br><span class="line">;调用A 返回 12</span><br><span class="line">;调用D 返回一个过程</span><br><span class="line">;调用(D) 返回12</span><br><span class="line">;调用A 返回error</span><br><span class="line"></span><br><span class="line">(display (* A A))</span><br><span class="line"></span><br><span class="line">(define (square x)</span><br><span class="line">    (* x x))</span><br><span class="line">;(display (square 10))</span><br><span class="line">(define square1 (lambda (x) (* x x)))</span><br><span class="line">(display (square1 10))</span><br><span class="line">(define (ABS x)</span><br><span class="line">(cond ((&lt; x 0)(-x))  </span><br><span class="line">    ((&#x3D; 0) 0)</span><br><span class="line">    ((&gt; 0) x)</span><br><span class="line">    ))</span><br><span class="line"></span><br><span class="line">; 计算平方根</span><br><span class="line"></span><br><span class="line">(exit)</span><br></pre></td></tr></table></figure>
+
+<h3 id="计算过程"><a href="#计算过程" class="headerlink" title="计算过程"></a>计算过程</h3><ul>
+<li>其实，如果你深究计算机的抽象层次，你会发现无论在具体的哪一个层次，在其下都还有若干个你不清楚的抽象层次，但我们必须明白要学会忽略细节，理解复杂事物的关键，避免不必要的观察、思考和计算</li>
+<li>代换模型</li>
+<li>（线性 ）迭代计算过程==运算时的所有信息都在参数变量中，即不需要像递归那样保存过多的信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(define (+ x y)</span><br><span class="line">    (if (&#x3D; x 0)</span><br><span class="line">        y</span><br><span class="line">        (+ (-1+ x) (1+ y))</span><br><span class="line">    )</span><br><span class="line">)</span><br><span class="line">;有点类似尾递归，回头在理解一下尾递归</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>（线性）递归计算过程</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(define (+ x y)</span><br><span class="line">    (if (&#x3D; x 0)</span><br><span class="line">    y</span><br><span class="line">    (1+ (+ (-1+ x) y))))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>汉诺塔</li>
+</ul>
+<h3 id="高阶过程"><a href="#高阶过程" class="headerlink" title="高阶过程"></a>高阶过程</h3><ul>
+<li><strong>def</strong><br>即使在数值计算过程中，如果将过程限制为只能以数作为参数，那也会严重地限制我们建立抽象的能力。经常有一些同样的程序设计模式能用于若干不同的过程，为了把这种模式描述为相应的概念，我们就需要构造出这样的过程，让他们以过程作为参数，或者以过程作为返回值，这类能够操作过程的过程称为<strong>高阶过程</strong>。</li>
+<li><strong>不使用高阶过程计算立方和</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(define (cubeSim x) (* x x x))</span><br><span class="line">(define (sumCubeSim a b)</span><br><span class="line">        (if (&gt; a b)</span><br><span class="line">            0</span><br><span class="line">            (+ (cubeSim a) (sumCubeSim (+ a 1) b))</span><br><span class="line">        )</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">(display (sumCubeSim 1 10))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>使用高阶过程计算立方和</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(define (sum term a next b)</span><br><span class="line">        (if (&gt; a b)</span><br><span class="line">        0</span><br><span class="line">        (+ (term a)</span><br><span class="line">        (sum term (next a) next b)</span><br><span class="line">        )))</span><br><span class="line">(define (inc n) (+ n 1))</span><br><span class="line">(define (cube x) (* x x x))</span><br><span class="line">(define (sumCubes a b)</span><br><span class="line">        (sum cube a inc b)</span><br><span class="line"></span><br><span class="line">)</span><br><span class="line">(display (sumCubes 1 10))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>使用lamada表达式计算立方和</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(define sumCubesLambda (lambda (a b)</span><br><span class="line">        (sum (lambda (x) (* x x x))</span><br><span class="line">            a</span><br><span class="line">            (lambda (a) (+ a 1))</span><br><span class="line">            b</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">)</span><br><span class="line">)</span><br><span class="line">(display (sumCubesLambda 1 10))</span><br><span class="line">;lambda实际上就是一个匿名过程</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>将过程（函数）作为第一级要素</p>
+<ul>
+<li>必须可以用变量命名</li>
+<li>必须可以把过程当作参数</li>
+<li>必须可以把过程作为结果返回</li>
+<li>必须可以包含在数据结构中</li>
+</ul>
+</li>
+<li><p>愿望思维</p>
+</li>
+</ul>
+<h3 id="复合数据"><a href="#复合数据" class="headerlink" title="复合数据"></a>复合数据</h3><ul>
+<li><p>表结构</p>
+<ul>
+<li><code>(cons x y)</code>  序对 &nbsp;&nbsp;<code>(car p)</code>==取x(首部分）&nbsp;&nbsp;<code>(cdr p)</code>==取y（次部分）</li>
+</ul>
+</li>
+<li><p>过程不仅仅是动作的集合，他还是概念实体是对象。</p>
+</li>
+<li><p>过程和数据是一回事！！！</p>
+</li>
+<li><p>自定义cons</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">;自定义cons</span><br><span class="line">(define (mycons a b)</span><br><span class="line">(define (pick x)</span><br><span class="line">    (cond ((&#x3D; x 0) a)</span><br><span class="line">          ((&#x3D; x 1) b)</span><br><span class="line">    )</span><br><span class="line">)</span><br><span class="line">pick;mcons的返回值，使用lambda就不用</span><br><span class="line">)</span><br><span class="line">(define (car y) (y 0))</span><br><span class="line">(define (cdr y) (y 1))</span><br><span class="line">(display (car (mycons 10 20)))</span><br><span class="line">;用lambda实现</span><br><span class="line">(define (myConsLambda a b)</span><br><span class="line">        (lambda (x)</span><br><span class="line">        (cond ((&#x3D; x 0) a)</span><br><span class="line">              ((&#x3D; x 1) b)</span><br><span class="line">        )</span><br><span class="line">        )</span><br><span class="line">)</span><br><span class="line">(display (car (myConsLambda 10 20)))</span><br></pre></td></tr></table></figure>
+
+<h3 id="Escher的例子"><a href="#Escher的例子" class="headerlink" title="Escher的例子"></a>Escher的例子</h3><ul>
+<li>list</li>
+</ul>
+<p><code>list(1 2 3 4)==嵌套cons</code><br>因为他的本质是嵌套cons所以依旧可以用car cdr取元素</p>
+<ul>
+<li>foreach</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(define (myforeach proc list)</span><br><span class="line">    (cond ((null? list) &quot;done&quot;)</span><br><span class="line">          (else (proc (car list)</span><br><span class="line">                (myforeach proc (cdr list))</span><br><span class="line">          ))</span><br><span class="line">    )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>元语言抽象</li>
+<li>分解观点<ul>
+<li>按层次分解<ul>
+<li>任务分解的每一层都应该是尽可能完全的</li>
+<li>将每一层看作语言，每一层就有了不同的词汇储备，用于讨论不同层次上的设计。</li>
+</ul>
+</li>
+<li>严格按继承分解</li>
+</ul>
+</li>
+<li><strong>真正的设计过程，与其说是设计程序不如说是设计语言</strong></li>
 </ul>
 
         </div>

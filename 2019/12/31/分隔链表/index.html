@@ -12,7 +12,7 @@
 
 
 
-<title>删除排序链表中的重复元素II | 放不下筷子的程序员</title>
+<title>分隔链表 | 放不下筷子的程序员</title>
 
 
 
@@ -174,7 +174,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">删除排序链表中的重复元素II</h1>
+            <h1 class="post-title">分隔链表</h1>
             
                 <div class="post-meta">
                     
@@ -183,7 +183,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">December 29, 2019&nbsp;&nbsp;9:34:06</a>
+                        Date: <a href="#">December 31, 2019&nbsp;&nbsp;12:42:07</a>
                         </span>
                     
                     
@@ -199,20 +199,12 @@
         </header>
 
         <div class="post-content">
-            <h5 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h5><p>给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中没有重复出现的数字。</p>
-<h5 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h5><p>输入: 1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5<br><br>输出: 1-&gt;2-&gt;5</p>
-<h5 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h5><ul>
-<li>设置快慢指针<ul>
-<li>快指针判断是否存在相同元素，有相同元素就前进，无相同元素就停止</li>
-<li>当快指针停止时<ul>
-<li><code>slow.next==fast slow=fast;</code> 如果快慢指针之间没有相同元素，两指针同时向后移动。</li>
-<li><code>slow.next=fast.next;</code> 如果快慢指针之间有相同元素，使slow指针跳过这些相同元素。<br></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public ListNode deleteDuplicates(ListNode head) &#123;</span><br><span class="line">      </span><br><span class="line">      if(head&#x3D;&#x3D;null || head.next &#x3D;&#x3D; null)</span><br><span class="line">          return head;</span><br><span class="line">      ListNode fakeHead &#x3D; new ListNode(-1);</span><br><span class="line">      fakeHead.next&#x3D;head;</span><br><span class="line">      ListNode fast &#x3D; head;</span><br><span class="line">      ListNode slow &#x3D; fakeHead;</span><br><span class="line">      while(fast!&#x3D;null)</span><br><span class="line">      &#123;</span><br><span class="line">          if((fast.next!&#x3D;null&amp;&amp;fast.val!&#x3D;fast.next.val)||fast.next&#x3D;&#x3D;null)</span><br><span class="line">          &#123;</span><br><span class="line">               if(slow.next&#x3D;&#x3D;fast)</span><br><span class="line">                   slow&#x3D;fast;</span><br><span class="line">              else</span><br><span class="line">              </span><br><span class="line">                  slow.next&#x3D;fast.next;     </span><br><span class="line">          &#125;</span><br><span class="line">          </span><br><span class="line">          fast&#x3D;fast.next;</span><br><span class="line">      &#125;</span><br><span class="line">      return fakeHead.next;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+            <h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给定一个链表和一个特定值 x，对链表进行分隔，使得所有小于 x 的节点都在大于或等于 x 的节点之前。</p>
+<p>你应当保留两个分区中每个节点的初始相对位置。<br></p>
+<p>输入: head = 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;2, x = 3<br><br>输出: 1-&gt;2-&gt;2-&gt;4-&gt;3-&gt;5</p>
+<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>这道题跟19年863的链表快排本质上是一道题，一开始就直接用的当时思路做的直接采用头插法，当该题要求顺序必须与原链表的顺序一致，故应该采用双链表的思路来做，一个保存比x小的结点，一个保存剩余的结点，最后再把两个结点拼起来。</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> public ListNode partition(ListNode head, int x) &#123;</span><br><span class="line">        ListNode before &#x3D; new ListNode(0);</span><br><span class="line">        ListNode last &#x3D; new ListNode(0);</span><br><span class="line">        ListNode beforeHead &#x3D; before;</span><br><span class="line">        ListNode lastHead &#x3D; last;</span><br><span class="line">        while(head!&#x3D;null)</span><br><span class="line">        &#123;</span><br><span class="line">            if(head.val&lt;x)</span><br><span class="line">            &#123;</span><br><span class="line">                before.next&#x3D;head;</span><br><span class="line">                before &#x3D; before.next;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                last.next &#x3D; head;</span><br><span class="line">                last &#x3D; last.next;</span><br><span class="line">            &#125;</span><br><span class="line">            head &#x3D; head.next;</span><br><span class="line">        &#125;</span><br><span class="line">        last.next&#x3D;null;</span><br><span class="line">        before.next &#x3D; lastHead.next;</span><br><span class="line">        return beforeHead.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
         </div>
 
         
@@ -239,10 +231,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/12/31/%E5%88%86%E9%9A%94%E9%93%BE%E8%A1%A8/">分隔链表</a>
+                <a class="prev" rel="prev" href="/2019/12/31/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/">环形链表</a>
             
             
-            <a class="next" rel="next" href="/2019/12/29/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/">旋转链表</a>
+            <a class="next" rel="next" href="/2019/12/29/%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0II/">删除排序链表中的重复元素II</a>
             
         </section>
 

@@ -12,7 +12,7 @@
 
 
 
-<title>删除排序链表中的重复元素II | 放不下筷子的程序员</title>
+<title>环形链表 | 放不下筷子的程序员</title>
 
 
 
@@ -174,7 +174,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">删除排序链表中的重复元素II</h1>
+            <h1 class="post-title">环形链表</h1>
             
                 <div class="post-meta">
                     
@@ -183,7 +183,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">December 29, 2019&nbsp;&nbsp;9:34:06</a>
+                        Date: <a href="#">December 31, 2019&nbsp;&nbsp;12:44:09</a>
                         </span>
                     
                     
@@ -199,20 +199,11 @@
         </header>
 
         <div class="post-content">
-            <h5 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h5><p>给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中没有重复出现的数字。</p>
-<h5 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h5><p>输入: 1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5<br><br>输出: 1-&gt;2-&gt;5</p>
-<h5 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h5><ul>
-<li>设置快慢指针<ul>
-<li>快指针判断是否存在相同元素，有相同元素就前进，无相同元素就停止</li>
-<li>当快指针停止时<ul>
-<li><code>slow.next==fast slow=fast;</code> 如果快慢指针之间没有相同元素，两指针同时向后移动。</li>
-<li><code>slow.next=fast.next;</code> 如果快慢指针之间有相同元素，使slow指针跳过这些相同元素。<br></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public ListNode deleteDuplicates(ListNode head) &#123;</span><br><span class="line">      </span><br><span class="line">      if(head&#x3D;&#x3D;null || head.next &#x3D;&#x3D; null)</span><br><span class="line">          return head;</span><br><span class="line">      ListNode fakeHead &#x3D; new ListNode(-1);</span><br><span class="line">      fakeHead.next&#x3D;head;</span><br><span class="line">      ListNode fast &#x3D; head;</span><br><span class="line">      ListNode slow &#x3D; fakeHead;</span><br><span class="line">      while(fast!&#x3D;null)</span><br><span class="line">      &#123;</span><br><span class="line">          if((fast.next!&#x3D;null&amp;&amp;fast.val!&#x3D;fast.next.val)||fast.next&#x3D;&#x3D;null)</span><br><span class="line">          &#123;</span><br><span class="line">               if(slow.next&#x3D;&#x3D;fast)</span><br><span class="line">                   slow&#x3D;fast;</span><br><span class="line">              else</span><br><span class="line">              </span><br><span class="line">                  slow.next&#x3D;fast.next;     </span><br><span class="line">          &#125;</span><br><span class="line">          </span><br><span class="line">          fast&#x3D;fast.next;</span><br><span class="line">      &#125;</span><br><span class="line">      return fakeHead.next;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+            <h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给定一个链表，判断链表中是否有环。</p>
+<p>为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。</p>
+<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>采用快慢指针的思路，如果存在环，快指针一定会跑一圈后追上慢指针，不然快指针会走到链表末尾。</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public boolean hasCycle(ListNode head) &#123;</span><br><span class="line"></span><br><span class="line">        if(head&#x3D;&#x3D;null) return false;</span><br><span class="line"></span><br><span class="line">        ListNode fast &#x3D; head;</span><br><span class="line">        ListNode slow &#x3D; head;</span><br><span class="line">        while(fast!&#x3D;null&amp;&amp;fast.next!&#x3D;null)</span><br><span class="line">        &#123;</span><br><span class="line">            fast &#x3D; fast.next.next;</span><br><span class="line">            slow &#x3D; slow.next;</span><br><span class="line">            if(fast&#x3D;&#x3D;slow)</span><br><span class="line">                return true;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
         </div>
 
         
@@ -239,10 +230,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/12/31/%E5%88%86%E9%9A%94%E9%93%BE%E8%A1%A8/">分隔链表</a>
             
-            
-            <a class="next" rel="next" href="/2019/12/29/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/">旋转链表</a>
+            <a class="next" rel="next" href="/2019/12/31/%E5%88%86%E9%9A%94%E9%93%BE%E8%A1%A8/">分隔链表</a>
             
         </section>
 
