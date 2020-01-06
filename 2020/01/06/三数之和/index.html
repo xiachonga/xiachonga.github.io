@@ -12,7 +12,7 @@
 
 
 
-<title>环形链表 | 放不下筷子的程序员</title>
+<title>三数之和 | 放不下筷子的程序员</title>
 
 
 
@@ -174,7 +174,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">环形链表</h1>
+            <h1 class="post-title">三数之和</h1>
             
                 <div class="post-meta">
                     
@@ -183,7 +183,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">December 31, 2019&nbsp;&nbsp;12:44:09</a>
+                        Date: <a href="#">January 6, 2020&nbsp;&nbsp;11:43:18</a>
                         </span>
                     
                     
@@ -199,10 +199,27 @@
         </header>
 
         <div class="post-content">
-            <h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给定一个链表，判断链表中是否有环。</p>
-<p>为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。</p>
-<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>采用快慢指针的思路，如果存在环，快指针一定会跑一圈后追上慢指针，不然快指针会走到链表末尾。</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public boolean hasCycle(ListNode head) &#123;</span><br><span class="line"></span><br><span class="line">        if(head&#x3D;&#x3D;null) return false;</span><br><span class="line"></span><br><span class="line">        ListNode fast &#x3D; head;</span><br><span class="line">        ListNode slow &#x3D; head;</span><br><span class="line">        while(fast!&#x3D;null&amp;&amp;fast.next!&#x3D;null)</span><br><span class="line">        &#123;</span><br><span class="line">            fast &#x3D; fast.next.next;</span><br><span class="line">            slow &#x3D; slow.next;</span><br><span class="line">            if(fast&#x3D;&#x3D;slow)</span><br><span class="line">                return true;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+            <p>###　题目描述</p>
+<p>给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。</p>
+<p>注意：答案中不可以包含重复的三元组。</p>
+<p>例如, 给定数组 nums = [-1, 0, 1, 2, -1, -4]，</p>
+<p>满足要求的三元组集合为：<br>[<br>  [-1, 0, 1],<br>  [-1, -1, 2]<br>]</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><ul>
+<li>特判，对于数组长度 n，如果数组为 null 或者数组长度小于 3，返回 []。</li>
+<li>对数组进行排序。</li>
+<li>遍历排序后数组：<ul>
+<li>若 nums[i]&gt;0：因为已经排序好，所以后面不可能有三个数加和等于 00，直接返回结果。</li>
+<li>对于重复元素：跳过，避免出现重复解</li>
+<li>令左指针 L=i+1，右指针 R=n-1，当 L&lt;R时，执行循环：<ul>
+<li>当 nums[i]+nums[L]+nums[R]==0，执行循环，判断左界和右界是否和下一位置重复，去除重复解。并同时将 L,R移到下一位置，寻找新的解</li>
+<li>若和大于 0，说明 nums[R] 太大，R 左移</li>
+<li>若和小于 0，说明 nums[L]太小，L 右移</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;List&lt;Integer&gt;&gt; threeSum(int[] nums) &#123;</span><br><span class="line"></span><br><span class="line">           List&lt;List&lt;Integer&gt;&gt; result &#x3D; new ArrayList&lt;List&lt;Integer&gt;&gt;();</span><br><span class="line">           if(nums&#x3D;&#x3D;null||nums.length&lt;3) return result;</span><br><span class="line">           Arrays.sort(nums);</span><br><span class="line">           int len &#x3D; nums.length;</span><br><span class="line">           for(int i &#x3D; 0;i&lt;len;i++)</span><br><span class="line">           &#123;</span><br><span class="line">               if(nums[i]&gt;0) break;</span><br><span class="line">               if(i&gt;0 &amp;&amp; nums[i]&#x3D;&#x3D;nums[i-1]) continue;</span><br><span class="line">               int L &#x3D; i+1;</span><br><span class="line">               int R &#x3D; len-1;</span><br><span class="line">               while(L&lt;R)</span><br><span class="line">               &#123;</span><br><span class="line">                   int sum &#x3D; nums[i]+nums[L]+nums[R];</span><br><span class="line">                   if(sum &#x3D;&#x3D; 0)</span><br><span class="line">                   &#123;</span><br><span class="line">                       List&lt;Integer&gt; list &#x3D; new ArrayList&lt;Integer&gt;();</span><br><span class="line">                       list.add(nums[i]);</span><br><span class="line">                       list.add(nums[L]);</span><br><span class="line">                       list.add(nums[R]);</span><br><span class="line">                       result.add(list);</span><br><span class="line">                       while(L&lt;R&amp;&amp;nums[L]&#x3D;&#x3D;nums[L+1]) &#x2F;&#x2F;去除重复解</span><br><span class="line">                         L++;</span><br><span class="line">                       while(L&lt;R&amp;&amp;nums[R]&#x3D;&#x3D;nums[R-1])</span><br><span class="line">                         R--;</span><br><span class="line">                       L++;</span><br><span class="line">                       R--;</span><br><span class="line">                   &#125;</span><br><span class="line"></span><br><span class="line">                   if(sum &gt; 0)</span><br><span class="line">                       R--;</span><br><span class="line">                   if(sum &lt; 0)</span><br><span class="line">                       L++;</span><br><span class="line">               &#125;</span><br><span class="line"></span><br><span class="line">           &#125;</span><br><span class="line">       return result;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
         </div>
 
@@ -221,7 +238,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/%E9%93%BE%E8%A1%A8/">· 链表</a>
+                        <a href="/tags/%E6%95%B0%E7%BB%84/">· 数组</a>
                     
                         
                 </span>
@@ -230,10 +247,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/01/05/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B-%E6%9D%8E%E5%AE%8F%E6%AF%85/">异常检测_李宏毅</a>
             
-            
-            <a class="next" rel="next" href="/2019/12/31/%E5%88%86%E9%9A%94%E9%93%BE%E8%A1%A8/">分隔链表</a>
+            <a class="next" rel="next" href="/2020/01/05/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B-%E6%9D%8E%E5%AE%8F%E6%AF%85/">异常检测_李宏毅</a>
             
         </section>
 

@@ -108,6 +108,68 @@
             <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
 
     
     <article class="post-wrap">
@@ -137,7 +199,132 @@
         </header>
 
         <div class="post-content">
-            
+            <h3 id="循环序列模型"><a href="#循环序列模型" class="headerlink" title="循环序列模型"></a>循环序列模型</h3><h4 id="数学符号"><a href="#数学符号" class="headerlink" title="数学符号"></a>数学符号</h4><ul>
+<li><p>设置单词表（词典</p>
+</li>
+<li><p>one-hot编码</p>
+</li>
+<li><p>如果遇到不在词典里的单词就创建一个新的标记，也就是一个叫做Unknowned Word的伪造单词用作标记。</p>
+</li>
+</ul>
+<h4 id="循环神经网络模型"><a href="#循环神经网络模型" class="headerlink" title="循环神经网络模型"></a>循环神经网络模型</h4><p>  <img src="https://raw.githubusercontent.com/xiachonga/imageForVsCode/master/image/20191231163820.png" alt="循环神经网络结构"><br><br>  <img src="https://raw.githubusercontent.com/xiachonga/imageForVsCode/master/image/20200102103531.png" alt="循环神经网络计算过程"></p>
+<h4 id="通过时间的反向传播"><a href="#通过时间的反向传播" class="headerlink" title="通过时间的反向传播"></a>通过时间的反向传播</h4><h4 id="不同类型的循环神经网络"><a href="#不同类型的循环神经网络" class="headerlink" title="不同类型的循环神经网络"></a>不同类型的循环神经网络</h4><ul>
+<li><p>(多对多)</p>
+<ul>
+<li>Tx = Ty</li>
+<li>Tx != Ty(机器翻译)</li>
+</ul>
+</li>
+<li><p>电影评论 x = text y=1…5（多对一）</p>
+</li>
+<li><p>音乐生成（一对多）</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/xiachonga/imageForVsCode/master/image/20200102105628.png" alt="不同类型的rnn结构"></p>
+<h4 id="语言模型和序列生成"><a href="#语言模型和序列生成" class="headerlink" title="语言模型和序列生成"></a>语言模型和序列生成</h4><ul>
+<li>加EOS 标记</li>
+</ul>
+<h4 id="对新序列采样"><a href="#对新序列采样" class="headerlink" title="对新序列采样"></a>对新序列采样</h4><ul>
+<li>对于训练好的网络按照时间步顺序逐层随机采样，并将采样结果作为下一层的输入，一直采样到EOS，停止采样，从而生成一个随机采样的句子。</li>
+</ul>
+<h4 id="带有神经网络的梯度消失"><a href="#带有神经网络的梯度消失" class="headerlink" title="带有神经网络的梯度消失"></a>带有神经网络的梯度消失</h4><ul>
+<li>深度太深的神经网络反向传播时梯度很难传播到前面，应用到rnn中的具体表现就有：谓语动词如果离主语较远就很难判断单复数。</li>
+<li>梯度爆炸==梯度修剪（指数型上升</li>
+<li>梯度消失相对梯度爆炸较难解决（指数性下降</li>
+</ul>
+<h4 id="GRU单元（门控循环神经网络）"><a href="#GRU单元（门控循环神经网络）" class="headerlink" title="GRU单元（门控循环神经网络）"></a>GRU单元（门控循环神经网络）</h4><ul>
+<li><p>由门决定是否更新<br>比如：the cat/cats …… was/were full<br><br>比如Ct=1表示cat，Ct=0表示cats，门会记住这个值直到was/were，用来判断应该用单数还是复数，任务完成后门忘掉这个值</p>
+</li>
+<li><p>$C_t = G_u<em>C_t +(1-G_u)</em>C_{t-1}$</p>
+</li>
+</ul>
+<h4 id="长短期记忆-LSTM"><a href="#长短期记忆-LSTM" class="headerlink" title="长短期记忆(LSTM)"></a>长短期记忆(LSTM)</h4><h4 id="双向神经网络"><a href="#双向神经网络" class="headerlink" title="双向神经网络"></a>双向神经网络</h4><p><img src="https://raw.githubusercontent.com/xiachonga/imageForVsCode/master/image/20200102132351.png" alt="双向循环神经网络结构"></p>
+<h4 id="深层循环神经网络"><a href="#深层循环神经网络" class="headerlink" title="深层循环神经网络"></a>深层循环神经网络</h4><p><img src="https://raw.githubusercontent.com/xiachonga/imageForVsCode/master/image/20200102125405.png" alt="深层循环神经网络结构"></p>
+<h3 id="自然语言处理与词嵌入"><a href="#自然语言处理与词嵌入" class="headerlink" title="自然语言处理与词嵌入"></a>自然语言处理与词嵌入</h3><h4 id="词汇表征"><a href="#词汇表征" class="headerlink" title="词汇表征"></a>词汇表征</h4><ul>
+<li>one-hot编码的缺点<br><br>他把每个词孤立起来，是的算法对相关词的泛化能力不强</li>
+<li>t-SNE算法 把高维空间映射到低维</li>
+</ul>
+<h4 id="使用词嵌入"><a href="#使用词嵌入" class="headerlink" title="使用词嵌入"></a>使用词嵌入</h4><h4 id="词嵌入的特性"><a href="#词嵌入的特性" class="headerlink" title="词嵌入的特性"></a>词嵌入的特性</h4><p>$e_{man}-e_{woman}\approx e_{king}-e_?$</p>
+<ul>
+<li>余弦相似度</li>
+</ul>
+<h4 id="嵌入矩阵"><a href="#嵌入矩阵" class="headerlink" title="嵌入矩阵"></a>嵌入矩阵</h4><h4 id="学习词嵌入"><a href="#学习词嵌入" class="headerlink" title="学习词嵌入"></a>学习词嵌入</h4><p>嵌入矩阵*one-hot=嵌入向量，然后把嵌入向量输入一个softmax层得到预测结果（其中嵌入矩阵是在很大的一个文本中学习得到的</p>
+<h4 id="Word2Vec"><a href="#Word2Vec" class="headerlink" title="Word2Vec"></a>Word2Vec</h4><ul>
+<li><p>skip-gram</p>
+</li>
+<li><p>CBOW 连续词袋模型</p>
+</li>
+</ul>
+<h4 id="负采样"><a href="#负采样" class="headerlink" title="负采样"></a>负采样</h4><ul>
+<li>正样本在一定词距的上下文选取，负样本的选取在词库内随机选取</li>
+<li>目标是对于选出的一对词给出其是否可能会一起出现的结果</li>
+<li>数据集小，k选择5-20</li>
+<li>数据集大，k选择2-5 （其中k为负样本的数量</li>
+</ul>
+<h4 id="Glove词向量"><a href="#Glove词向量" class="headerlink" title="Glove词向量"></a>Glove词向量</h4><h4 id="情绪分类"><a href="#情绪分类" class="headerlink" title="情绪分类"></a>情绪分类</h4><ul>
+<li>主成分分析</li>
+</ul>
+<h4 id="词嵌入除偏"><a href="#词嵌入除偏" class="headerlink" title="词嵌入除偏"></a>词嵌入除偏</h4><h3 id="序列模型与注意力机制"><a href="#序列模型与注意力机制" class="headerlink" title="序列模型与注意力机制"></a>序列模型与注意力机制</h3><h4 id="基础模型"><a href="#基础模型" class="headerlink" title="基础模型"></a>基础模型</h4><ul>
+<li>seqtoseq 机器翻译模型</li>
+<li>imagetoseq 图片生成图片描述</li>
+</ul>
+<h4 id="选择最可能的句子"><a href="#选择最可能的句子" class="headerlink" title="选择最可能的句子"></a>选择最可能的句子</h4><ul>
+<li><p>使得条件概率最大化</p>
+</li>
+<li><p>运用贪心，先挑选出最好的一个词再挑选次好的，依次类推。</p>
+<p><img src="https://raw.githubusercontent.com/xiachonga/imageForVsCode/master/image/20200105104004.png" alt="网络结构"></p>
+</li>
+</ul>
+<h4 id="定向搜索"><a href="#定向搜索" class="headerlink" title="定向搜索"></a>定向搜索</h4><ul>
+<li>集束搜索算法（beam search）不同于贪心一次只会考虑一个词，集束搜索一次会考虑多个词</li>
+</ul>
+<h4 id="改进定向搜索"><a href="#改进定向搜索" class="headerlink" title="改进定向搜索"></a>改进定向搜索</h4><ul>
+<li><p>长度归一化</p>
+<ul>
+<li><p>通过取log把求乘积变成求和避免指数下溢（下溢的原因是概率小于1，乘积只会越乘越小）</p>
+</li>
+<li><p>归一化，对于目标函数，除以单词数量（也可以在单词数量上加上指数，比如除以0.7）</p>
+</li>
+</ul>
+</li>
+<li><p>束的选择</p>
+<ul>
+<li><p>束越大，效果越好，但相应的会付出较大的的计算代价。</p>
+</li>
+<li><p>束小结果相反</p>
+</li>
+<li><p>在产品中可能会选择10，100可能稍微有点大</p>
+</li>
+<li><p>科研中为了压榨性能，有可能会选择1000，甚至3000</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="定向搜索的误差分析"><a href="#定向搜索的误差分析" class="headerlink" title="定向搜索的误差分析"></a>定向搜索的误差分析</h4><p>误差分析的目的是找出错误出在rnn还是束搜索算法，从而更精确的改进算法</p>
+<p><strong>方法</strong></p>
+<p>运用rnn计算$P(Y_h|X)和P(Y_a|X)$的大小</p>
+<ul>
+<li><p>$P(Y_h|X) &gt; P(Y_a|X)$</p>
+<p>束搜索出现错误。因为束搜索算法选择了$Y_a$,但是$P(Y_h|X) &gt; P(Y_a|X)$</p>
+</li>
+<li><p>$P(Y_h|X) &lt;= P(Y_a|X)$</p>
+<p>RNN出现了错误，因为存在更好的$Y_a$,RNN却选择了$Y_h$</p>
+</li>
+</ul>
+<h4 id="Bleu得分（双语评估替补）"><a href="#Bleu得分（双语评估替补）" class="headerlink" title="Bleu得分（双语评估替补）"></a>Bleu得分（双语评估替补）</h4><p>用来衡量机器翻译的好坏</p>
+<p>BP 简短惩罚，用来避免出现较短的翻译，因为较短的翻译往往评估结果较好但不是我们想要的。</p>
+<h4 id="注意力模型直观理解"><a href="#注意力模型直观理解" class="headerlink" title="注意力模型直观理解"></a>注意力模型直观理解</h4><p>之前的模型对于很长的句子翻译不是很擅长，因为神经网络记不住这么长的句子，当然人也记不住，所以人工翻译就是将长句子划分一段一段的翻译，而注意力模型就是借鉴了这一思想用来翻译长句子。</p>
+<h4 id="注意力模型"><a href="#注意力模型" class="headerlink" title="注意力模型"></a>注意力模型</h4><h4 id="语音辨识"><a href="#语音辨识" class="headerlink" title="语音辨识"></a>语音辨识</h4><ul>
+<li><p>seqtoseq应用于语音，就是把语音转化成文字</p>
+</li>
+<li><p>音位表示法不在必要了</p>
+</li>
+<li><p>预处理生成声谱图</p>
+</li>
+<li><p>CTC损失函数</p>
+</li>
+</ul>
+<h4 id="触发字检测（语音唤醒）"><a href="#触发字检测（语音唤醒）" class="headerlink" title="触发字检测（语音唤醒）"></a>触发字检测（语音唤醒）</h4>
         </div>
 
         
