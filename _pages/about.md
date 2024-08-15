@@ -31,11 +31,6 @@ by Zhikun Wu, Yangjun Wu, Ying Liu, Honghui Shang, Yingxiang Gao, **Zhongcheng Z
 - **OpenCL-Accelerated First-Principles All-Electron Quantum Perturbation Calculations on HPC Resources** <br>
 by Zhikun Wu, Honghui Shang, Yangjun Wu, **Zhongcheng Zhang**, Ying Liu, Yuyang Zhang, Yucheng Ouyang, Huimin Cui, Xiaobing Feng. Theoretical and Computational Chemistry, 2023.
 
-<span class='anchor' id='-teaching-experience'></span>
-# 📚Teaching Experience
-- Teaching Assistant, Compilation Principle, University of Chinese Academy of Sciences (Spring 2023)
-- Teaching Assistant, Compilation Principle, University of Chinese Academy of Sciences (Spring 2024)
-
 # 🎖 Honors and Awards
 - *2023*, National Scholarship for Doctoral Students.
 - *2023*, Top 100 Chips achievements: Chip100 (2022-2023).
@@ -47,6 +42,11 @@ by Zhikun Wu, Honghui Shang, Yangjun Wu, **Zhongcheng Zhang**, Ying Liu, Yuyang 
 # 📖 Educations
 - *2020.09 - now*, Institute of Computing Technology, Chinese Academy of Sciences. 
 - *2016.09 - 2020.06*, Shandong University of Science and Technology.
+
+<span class='anchor' id='-teaching-experience'></span>
+# 📚Teaching Experience
+- Teaching Assistant, Compilation Principle, University of Chinese Academy of Sciences (Spring 2023)
+- Teaching Assistant, Compilation Principle, University of Chinese Academy of Sciences (Spring 2024)
 
 # 💻 Internships
 - *2021.09 - 2022.06*, Huawei, China.
