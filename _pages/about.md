@@ -34,7 +34,6 @@ by Zhikun Wu, Honghui Shang, Yangjun Wu, **Zhongcheng Zhang**, Ying Liu, Yuyang 
 # 🎖 Honors and Awards
 - *2023*, National Scholarship for Doctoral Students.
 - *2020*, Outstanding Graduate of Shandong Province.
-- *2019*, School Council Scholarship.
 - *2018*, National First Prize of China Software Cup.
 
 # 📖 Educations
