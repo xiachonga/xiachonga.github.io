@@ -34,7 +34,7 @@ by Zhikun Wu, Honghui Shang, Yangjun Wu, **Zhongcheng Zhang**, Ying Liu, Yuyang 
 # 🎖 Honors and Awards
 - *2023*, National Scholarship for Doctoral Students.
 - *2023*, Top 100 Chips achievements: Chip100 (2022-2023).
-- *2022 & 2023*, Merit Student & Pacemaker to Merit Student.
+- *2022/2023*, Merit Student/Pacemaker to Merit Student.
 - *2020*, Outstanding Graduate of Shandong Province.
 - *2019*, School Council Scholarship.
 - *2018*, National First Prize of China Software Cup.
