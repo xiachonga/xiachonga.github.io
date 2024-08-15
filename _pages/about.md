@@ -37,8 +37,9 @@ by Zhikun Wu, Honghui Shang, Yangjun Wu, **Zhongcheng Zhang**, Ying Liu, Yuyang 
 
 # 📖 Educations
 - *2020.09 - now*, Institute of Computing Technology, Chinese Academy of Sciences. 
-- *2016.09 - 2020.06*, Shandong University of Science and Technology. 
+- *2016.09 - 2020.06*, Shandong University of Science and Technology.
 
+<span class='anchor' id='-teaching-experience'></span>
 # 📚Teaching Experience
 - Teaching Assistant, Compilation Principle, University of Chinese Academy of Sciences (Spring 2023)
 - Teaching Assistant, Compilation Principle, University of Chinese Academy of Sciences (Spring 2024)
