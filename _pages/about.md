@@ -19,7 +19,7 @@ redirect_from:
 
 Hello! I’m Zhongcheng Zhang(张忠诚), a phd student at the [Institute of Computing Technology, Chinese Academy of Sciences](http://www.ict.ac.cn/), advised by Prof. [Xiaobing Feng](http://www.ict.ac.cn/sourcedb/cn/jssrck/200909/t20090917_2496613.html). And I am lucky to work with and advised by Prof. [Ying Liu](http://www.ict.ac.cn/sourcedb/cn/jssrck/202201/t20220111_6338879.html) and [Jingling Xue](https://www.cse.unsw.edu.au/~jingling/).
 
-My research interest includes compiler and computer architecture. Recently, I am focusing on **Fully Homomorphic Encryption(FHE) compilers**.
+My research interest includes compiler and computer architecture. Recently, I am focusing on **Fully Homomorphic Encryption(FHE) compilers**. 
 
 # 📝 Publications 
 - **Qiwu: Exploiting Ciphertext-Level SIMD Parallelism in Homomorphic Encryption Programs**<br>
@@ -30,6 +30,11 @@ by **Zhongcheng Zhang**, Yan Ou, Ying Liu, Chenxi Wang, Yongbin Zhou, Xiaoyu Wan
 by Zhikun Wu, Yangjun Wu, Ying Liu, Honghui Shang, Yingxiang Gao, **Zhongcheng Zhang**, Yuyang Zhang, Yingchi Long, Xiaobing Feng, Huimin Cui. International Conference for High Performance Computing, Networking, Storage and Analysis (**SC**), 2023.
 - **OpenCL-Accelerated First-Principles All-Electron Quantum Perturbation Calculations on HPC Resources** <br>
 by Zhikun Wu, Honghui Shang, Yangjun Wu, **Zhongcheng Zhang**, Ying Liu, Yuyang Zhang, Yucheng Ouyang, Huimin Cui, Xiaobing Feng. Theoretical and Computational Chemistry, 2023.
+
+<span class='anchor' id='-teaching-experience'></span>
+# 📚Teaching Experience
+- Teaching Assistant, Compilation Principle, University of Chinese Academy of Sciences (Spring 2023)
+- Teaching Assistant, Compilation Principle, University of Chinese Academy of Sciences (Spring 2024)
 
 # 🎖 Honors and Awards
 - *2023*, National Scholarship for Doctoral Students.
@@ -42,11 +47,6 @@ by Zhikun Wu, Honghui Shang, Yangjun Wu, **Zhongcheng Zhang**, Ying Liu, Yuyang 
 # 📖 Educations
 - *2020.09 - now*, Institute of Computing Technology, Chinese Academy of Sciences. 
 - *2016.09 - 2020.06*, Shandong University of Science and Technology.
-
-<span class='anchor' id='-teaching-experience'></span>
-# 📚Teaching Experience
-- Teaching Assistant, Compilation Principle, University of Chinese Academy of Sciences (Spring 2023)
-- Teaching Assistant, Compilation Principle, University of Chinese Academy of Sciences (Spring 2024)
 
 # 💻 Internships
 - *2021.09 - 2022.06*, Huawei, China.
