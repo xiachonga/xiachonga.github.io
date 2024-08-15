@@ -24,10 +24,10 @@ My research interest includes compiler and computer architecture. Recently, I am
 # 📝 Publications 
 - **Qiwu: Exploiting Ciphertext-Level SIMD Parallelism in Homomorphic Encryption Programs**<br>
 by **Zhongcheng Zhang**, Ying Liu, Yuyang Zhang, Zhenchuan Chen, Jiacheng Zhao, XiaoBing Feng, Huimin Cui and Jingling Xue. 21st Annual IEEE/ACM International Symposium on Code Generation and Optimization (**CGO**), 2025.
-- **Portable and Scalable All-Electron Quantum Perturbation Simulations on Exascale Supercomputers**<br>
-by Zhikun Wu, Yangjun Wu, Ying Liu, Honghui Shang, Yingxiang Gao, **Zhongcheng Zhang**, Yuyang Zhang, Yingchi Long, Xiaobing Feng, Huimin Cui. International Conference for High Performance Computing, Networking, Storage and Analysis (**SC**), 2023.
 - **OCCAMY: Elastically Sharing an On-chip SIMD Co-processor Across Multiple Cores**<br>
 by **Zhongcheng Zhang**, Yan Ou, Ying Liu, Chenxi Wang, Yongbin Zhou, Xiaoyu Wang, Yuyang Zhang, Yucheng Ouyang, Jiahao Shan, Ying Wang, Jingling Xue, Huimin Cui, Xiaobing Feng. The ACM International Conference on Architectural Support for Programming Languages and Operating Systems (**ASPLOS**), 2023.
+- **Portable and Scalable All-Electron Quantum Perturbation Simulations on Exascale Supercomputers**<br>
+by Zhikun Wu, Yangjun Wu, Ying Liu, Honghui Shang, Yingxiang Gao, **Zhongcheng Zhang**, Yuyang Zhang, Yingchi Long, Xiaobing Feng, Huimin Cui. International Conference for High Performance Computing, Networking, Storage and Analysis (**SC**), 2023.
 - **OpenCL-Accelerated First-Principles All-Electron Quantum Perturbation Calculations on HPC Resources** <br>
 by Zhikun Wu, Honghui Shang, Yangjun Wu, **Zhongcheng Zhang**, Ying Liu, Yuyang Zhang, Yucheng Ouyang, Huimin Cui, Xiaobing Feng. Theoretical and Computational Chemistry, 2023.
 
