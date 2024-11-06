@@ -32,6 +32,7 @@ by Zhikun Wu, Yangjun Wu, Ying Liu, Honghui Shang, Yingxiang Gao, **Zhongcheng Z
 by Zhikun Wu, Honghui Shang, Yangjun Wu, **Zhongcheng Zhang**, Ying Liu, Yuyang Zhang, Yucheng Ouyang, Huimin Cui, Xiaobing Feng. Theoretical and Computational Chemistry, 2023.
 
 # 🎖 Honors and Awards
+- *2024*, Excellent Teaching Assistant.
 - *2023*, National Scholarship for Doctoral Students.
 - *2023*, Top 100 Chips achievements: Chip100 (2022-2023).
 - *2022/2023*, Merit Student/Pacemaker to Merit Student.
